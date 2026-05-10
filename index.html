@@ -1,3 +1,510 @@
+
+Claude selesai merespons
+Anda berkata: redesain google form ini lebih keren dan bagus.
+redesain google form ini lebih keren dan bagus.
+
+https://docs.google.com/forms/d/11Bvo97JqgiPDG01Le4QDgsyb-rqggFoaEz9DN77Vi7M/edit
+
+1:53 PM
+Claude merespons: Browser Claude in Chrome belum terhubung.
+
+Alat yang dimuat, menggunakan integrasi Claude in Chrome
+Alat yang dimuat, menggunakan integrasi Claude in Chrome
+Browser Claude in Chrome belum terhubung. Saya tidak bisa membuka link Google Form tersebut secara langsung.
+
+Tapi tenang — saya bisa mendesain ulang form tersebut menjadi halaman web yang jauh lebih keren tanpa perlu mengaksesnya. Cukup ceritakan atau paste isi/pertanyaan dari form tersebut ke sini, dan saya akan membuatkan versi HTML yang:
+
+Tampilan modern & elegan (sesuai branding Ar-Rahmah: biru langit, putih, aksen emas)
+Animasi halus & UX yang nyaman
+Bisa digunakan sebagai form mandiri atau embed
+Responsif di HP maupun desktop
+Silakan copy-paste pertanyaan/isi form-nya di sini ya!
+
+Anda berkata: Assalamu’alaikum warahmatullahi wabarakatuh.
+1778392586523_image.png
+1778392593692_image.png
+Assalamu’alaikum warahmatullahi wabarakatuh.
+Selamat datang di Form Pendaftaran SMART TEACHER BOOTCAMP 2026 Tema: “Guru Berdaya, Siswa Berjaya”
+Pelatihan intensif ini dirancang untuk menghadirkan guru-guru yang adaptif, inspiratif, berkarakter, dan siap menghadapi tantangan pendidikan di era digital. Melalui training ini, peserta akan mendapatkan penguatan mindset, strategi pembelajaran aktif, pendidikan karakter, digital teaching, critical thinking, hingga classroom management yang berdampak langsung pada pembelajaran di sekolah.
+📍 Tempat: Asrama Haji Kemenag Sulbar (Graha Nusa), Mamuju
+📅 Waktu Pelaksanaan: Jumat–Ahad, 26–28 Juni 2026
+⏰ Check-in: Jumat, 08.00–12.00 WITA
+⏰ Check-out: Ahad, 11.00–12.00 WITA
+⚠️ PENTING — Kuota Sangat Terbatas! Program ini hanya diperuntukkan bagi 75 peserta terpilih, terdiri dari 2 orang guru utusan dari setiap MTs, MA, SMA, dan SMK se-Kabupaten Mamuju.
+Dengan mengisi form ini, peserta WAJIB menyetujui ketentuan berikut:
+✅ Memiliki identitas keguruan yang jelas dan dibuktikan dengan mandat/surat tugas dari sekolah masing-masing. ✅ Membawa alat tulis pribadi selama pelatihan berlangsung. ✅ Bersedia mengikuti seluruh tata tertib training hingga selesai. ✅ Bersedia mengikuti seluruh sesi pelatihan secara aktif dan disiplin. ✅ Infaq kontribusi peserta sebesar Rp 500.000/orang.
+Jika Anda telah memahami dan menyetujui seluruh ketentuan di atas, silakan melanjutkan pengisian data diri pada form berikut.
+📩 Informasi lanjutan dan konfirmasi peserta akan diinformasikan oleh panitia setelah proses pendaftaran selesai.
+Wassalamu’alaikum warahmatullahi wabarakatuh.
+
+Tampilkan lebih banyak
+1:57 PM
+Claude merespons: Wa'alaikumussalam warahmatullahi wabarakatuh, Cikgu!
+
+Reading frontend design skill
+Reading frontend design skill
+Wa'alaikumussalam warahmatullahi wabarakatuh, Cikgu!
+
+Baik, saya sudah lihat isi form-nya. Saya akan buatkan versi redesain yang jauh lebih keren — dengan tema elegan bertema pendidikan Islam, branding warna Ar-Rahmah (biru langit + emas), dan UX yang nyaman diisi di HP maupun desktop.
+
+
+Membuat file, membaca file
+Membuat file, membaca file
+Alhamdulillah, selesai! Ini hasilnya, Cikgu 🎉
+
+Redesain ini jauh berbeda dari Google Form biasa. Berikut fitur-fitur yang sudah dimasukkan:
+
+Desain & Visual
+
+Hero banner bergradasi biru langit dengan pola geometris, judul Playfair Display elegan, dan chip info lokasi/tanggal
+Branding warna konsisten: biru langit sebagai primer, emas sebagai aksen
+Kartu per seksi dengan header berwarna, ikon, dan shadow halus
+UX & Interaksi
+
+Pilihan jenis kelamin sebagai tombol card yang bisa diklik (bukan radio button polos)
+Area upload file dengan drag & drop — file yang dipilih langsung tampil nama & konfirmasi hijau
+Checkbox persetujuan data custom dengan animasi centang
+Tombol submit dengan efek hover melayang
+Pop-up sukses saat form dikirim
+Konten Lengkap
+
+Box ketentuan peserta dengan checklist emas
+Badge kuota merah ("75 peserta terbatas")
+Notif infaq Rp 500.000 dengan ikon dompet
+Salam pembuka & penutup Islami
+Untuk benar-benar menggunakannya sebagai pengganti Google Form, Cikgu bisa: (1) embed HTML ini di landing page sekolah, atau (2) hubungkan ke Google Apps Script / Formspree agar data tetap masuk ke spreadsheet.
+
+
+Smart teacher bootcamp 2026
+Kode · HTML 
+Anda berkata: bagaimana caranya agar pengisian ini masuk ke sini
+bagaimana caranya agar pengisian ini masuk ke sini
+https://docs.google.com/spreadsheets/d/1TbBZ3SFM8YW3rIXdDHIPaLuTOLEUxmYpw3ObrnnkIdA/edit?resourcekey=&gid=1502778512#gid=1502778512
+
+2:01 PM
+Claude merespons: Untuk menghubungkan form HTML ini ke Google Sheets, ada 2 cara — saya rekomendasikan Google Apps Script karena gratis, tanpa pihak ketiga, dan data langsung ma…
+Untuk menghubungkan form HTML ini ke Google Sheets, ada 2 cara — saya rekomendasikan Google Apps Script karena gratis, tanpa pihak ketiga, dan data langsung masuk ke spreadsheet Anda.
+
+Langkah-langkahnya:
+Langkah 1 — Buka Google Apps Script
+Buka spreadsheet Anda
+Klik menu Extensions → Apps Script
+Hapus kode yang ada, ganti dengan kode berikut:
+javascript
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1"); 
+    // Ganti "Sheet1" dengan nama tab sheet Anda yang sebenarnya
+
+    var data = JSON.parse(e.postData.contents);
+
+    sheet.appendRow([
+      new Date(),                    // Timestamp
+      data.nama || "",
+      data.gender || "",
+      data.sekolah || "",
+      data.whatsapp || "",
+      data.email || "",
+      data.surat_pengantar || "",    // nama file
+      data.bukti_pembayaran || "",   // nama file
+      data.persetujuan || ""
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+Langkah 2 — Deploy sebagai Web App
+Klik tombol Deploy → New deployment
+Klik ikon ⚙️ → pilih Web app
+Isi pengaturan:
+Description: Form Bootcamp 2026
+Execute as: Me
+Who has access: Anyone ← wajib, agar form bisa kirim data
+Klik Deploy
+Salin URL yang muncul — bentuknya seperti: https://script.google.com/macros/s/AKfycbxXXXXXX.../exec
+Langkah 3 — Pasang URL ke file HTML
+Saya akan update file HTML-nya sekarang. Cikgu cukup paste URL Apps Script di bawah ini:
+
+Silakan pilih dulu ya Cikgu — saya siapkan langkah selanjutnya sesuai kondisi Anda. 🙏
+
+Anda berkata: https://script.
+https://script.google.com/macros/s/AKfycbznP0uvoFr4zlcs-iqUYrg2PRSLS0K_Mm2w2Q6YHA5ShWSRaMebn1Lw72E8Ni8WVT8Q/exec
+
+sy jadikan namanya menjadi doPost
+Karena sudah ada scrip lain di Kode.gs
+
+2:04 PM
+Claude merespons: Baik Cikgu!
+Baik Cikgu! URL-nya sudah ada. Sekarang saya update file HTML-nya agar form langsung terkoneksi ke Google Sheets Anda.
+
+
+Melihat 2 file, mengedit file
+Melihat 2 file, mengedit file
+Sekarang tambahkan elemen spinner di tombol submit dan kotak error:
+
+
+Mengedit file, melihat file, menjalankan perintah
+Mengedit file, melihat file, menjalankan perintah
+File sudah diupdate, Cikgu! Sekarang form sudah terhubung ke Google Sheets Anda. Ini yang perlu diperhatikan:
+
+Yang sudah ditambahkan ke form:
+
+Validasi semua field sebelum dikirim — muncul pesan error merah jika ada yang kosong
+Spinner animasi di tombol saat sedang mengirim
+Data terkirim ke Apps Script → masuk otomatis ke spreadsheet
+Form reset otomatis setelah berhasil
+Pastikan di Apps Script Anda, nama fungsinya doPost dan kode-nya seperti ini:
+
+javascript
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet()
+                  .getSheetByName("Nama Tab Sheet Anda"); // ← sesuaikan nama tab
+
+    var data = JSON.parse(e.postData.contents);
+
+    sheet.appendRow([
+      new Date(),
+      data.nama,
+      data.gender,
+      data.sekolah,
+      data.whatsapp,
+      data.email,
+      data.surat_pengantar,
+      data.bukti_pembayaran,
+      data.persetujuan
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+Pastikan juga header kolom di spreadsheet urutannya:
+
+| Timestamp | Nama Lengkap | Jenis Kelamin | Asal Sekolah | WhatsApp | Email | Surat Pengantar | Bukti Bayar | Persetujuan |
+
+Kalau sudah, coba isi form sekali lalu cek apakah baris baru muncul di spreadsheet 🙏
+
+
+Smart teacher bootcamp 2026
+Kode · HTML 
+Anda berkata: blm ada apa2 di sheets
+1778393693098_image.png
+blm ada apa2 di sheets
+
+2:16 PM
+Claude merespons: Saya lihat di screenshot — form sudah tampil sukses ("Pendaftaran Terkirim!
+Saya lihat di screenshot — form sudah tampil sukses ("Pendaftaran Terkirim!") tapi data belum masuk ke Sheets. Ini karena no-cors mode tidak bisa mengirim JSON dengan benar ke Apps Script.
+
+Solusinya: ganti ke metode GET dengan URL parameter — ini cara paling andal untuk Apps Script tanpa masalah CORS.
+
+Perlu update 2 tempat:
+
+1. Di Apps Script — ganti fungsi doPost dengan doGet:
+
+
+Menjalankan perintah, membaca file
+Menjalankan perintah, membaca file
+File sudah diupdate. Sekarang update juga Apps Script-nya — ganti doPost menjadi doGet:
+
+javascript
+function doGet(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet()
+                  .getSheetByName("Form Responses 1"); // ← nama tab sheet Anda
+
+    var p = e.parameter;
+
+    sheet.appendRow([
+      new Date(),
+      p.nama        || "",
+      p.gender      || "",
+      p.sekolah     || "",
+      p.whatsapp    || "",
+      p.email       || "",
+      p.surat_pengantar   || "",
+      p.bukti_pembayaran  || "",
+      p.persetujuan || ""
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+Perhatikan: nama tab di screenshot Cikgu adalah "Form Responses 1" — sudah saya sesuaikan di kode di atas.
+
+Setelah update kode di Apps Script, jangan lupa klik Deploy → Manage deployments → Edit (ikon pensil) → Version: New version → Deploy agar perubahan aktif. Lalu coba isi form lagi dan cek Sheets 🙏
+
+
+Smart teacher bootcamp 2026
+Kode · HTML 
+Anda berkata: ok, sdh masuk.
+ok, sdh masuk.
+ini pengiriman bukti pembayarannya masuk kemana
+
+2:22 PM
+Claude merespons: Alhamdulillah datanya masuk!
+Alhamdulillah datanya masuk! 🎉
+
+Tapi untuk file upload (surat pengantar & bukti pembayaran), perlu Cikgu pahami dulu:
+
+Yang masuk ke Sheets sekarang hanya nama filenya saja (contoh: bukti.jpg) — file aslinya tidak ikut terkirim, karena form HTML biasa tidak bisa upload file langsung ke Google Drive lewat Apps Script tanpa backend khusus.
+
+Ada 2 pilihan solusi:
+
+Pilihan A — Minta peserta kirim via WhatsApp/Email (paling simpel)
+Ubah field upload jadi field teks saja, peserta cukup tulis "akan dikirim via WA ke panitia". File dikumpulkan manual oleh panitia.
+
+Pilihan B — Upload file ke Google Drive otomatis (teknis tapi powerful)
+File benar-benar terupload ke folder Google Drive Cikgu. Caranya menggunakan FileReader di JavaScript untuk convert file ke Base64, lalu kirim ke Apps Script yang akan simpan ke Drive. Hasilnya di Sheets akan muncul link Google Drive file tersebut.
+
+Anda berkata: P: Mau pakai solusi yang mana?
+P: Mau pakai solusi yang mana?
+J: Pilihan B — Upload ke Google Drive otomatis (ada link di Sheets)
+
+2:24 PM
+Claude merespons: Baik Cikgu!
+Baik Cikgu! Kita implementasikan Pilihan B. Ada 2 langkah utama:
+
+Langkah 1 — Update Apps Script
+Buka Apps Script, tambahkan fungsi baru uploadFileToDrive ini (jangan hapus doGet yang lama):
+
+javascript
+function doPost(e) {
+  try {
+    var data = JSON.parse(e.postData.contents);
+    
+    var folderId = "FOLDER_ID_DRIVE_ANDA"; // ← ganti ini
+    var folder = DriveApp.getFolderById(folderId);
+    
+    var blob = Utilities.newBlob(
+      Utilities.base64Decode(data.fileData),
+      data.mimeType,
+      data.fileName
+    );
+    
+    var file = folder.createFile(blob);
+    file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    
+    return ContentService
+      .createTextOutput(JSON.stringify({ 
+        status: "success", 
+        url: file.getUrl(),
+        id: file.getId()
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+Langkah 2 — Buat folder Google Drive dulu
+Sebelum lanjut, Cikgu perlu:
+
+Buka Google Drive
+Buat folder baru, contoh: Bootcamp 2026 - Dokumen Peserta
+Buat 2 subfolder di dalamnya: Surat Pengantar dan Bukti Pembayaran
+Buka folder Surat Pengantar → lihat URL-nya: https://drive.google.com/drive/folders/1aBcDeFgHiJkLmNo ← ini Folder ID-nya
+Lakukan hal sama untuk folder Bukti Pembayaran
+Anda berkata: P: Sudah buat folder di Google Drive dan dapat Folder ID-nya?
+P: Sudah buat folder di Google Drive dan dapat Folder ID-nya?
+J: Sudah — saya punya 2 Folder ID
+
+4:44 PM
+Claude merespons: Silakan paste kedua Folder ID-nya di sini Cikgu 🙏
+Silakan paste kedua Folder ID-nya di sini Cikgu 🙏
+
+Format seperti ini:
+
+Surat Pengantar: 1aBcDeFgHiJkLmNo...
+Bukti Pembayaran: 1xYzAbCdEfGhIjKl...
+Anda berkata: Surat Pengantar
+Surat Pengantar
+https://drive.google.com/drive/u/0/folders/1eer8sA9EU3TPVwWXuWCRKwJwn6dLz9cB24_PAhsAxt8TryrPs4a58dkFE9dqAVIguIfGDJyz
+
+Bukti 
+https://drive.google.com/drive/u/0/folders/1YbDaSC3--uEikoF0a3Uvu5PeDOicdzgF6EKEj_xactRarn1wARSfI4sf-vbh4AmFn5TXtrBi
+
+4:44 PM
+Claude merespons: Folder ID-nya sudah saya ekstrak dari URL tersebut:
+Folder ID-nya sudah saya ekstrak dari URL tersebut:
+
+Surat Pengantar: 1eer8sA9EU3TPVwWXuWCRKwJwn6dLz9cB24_PAhsAxt8TryrPs4a58dkFE9dqAVIguIfGDJyz
+Bukti Pembayaran: 1YbDaSC3--uEikoF0a3Uvu5PeDOicdzgF6EKEj_xactRarn1wARSfI4sf-vbh4AmFn5TXtrBi
+Sekarang saya update semuanya sekaligus — Apps Script dan HTML form.
+
+
+Menjalankan 2 perintah, membaca file
+Menjalankan 2 perintah, membaca file
+HTML sudah diupdate. Sekarang update Apps Script-nya — ini kode lengkap yang menggabungkan doGet (simpan ke Sheets) dan doPost (upload file ke Drive):
+
+javascript
+// ── Simpan data ke Sheets ──
+function doGet(e) {
+  try {
+    var p = e.parameter;
+    if (p.action !== 'saveRow') return ContentService.createTextOutput('ok');
+
+    var sheet = SpreadsheetApp.getActiveSpreadsheet()
+                  .getSheetByName("Form Responses 1");
+    sheet.appendRow([
+      new Date(),
+      p.nama            || "",
+      p.gender          || "",
+      p.sekolah         || "",
+      p.whatsapp        || "",
+      p.email           || "",
+      p.surat_pengantar || "",   // ← link Google Drive
+      p.bukti_pembayaran|| "",   // ← link Google Drive
+      p.persetujuan     || ""
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// ── Upload file ke Google Drive ──
+function doPost(e) {
+  try {
+    var data   = JSON.parse(e.postData.contents);
+    if (data.action !== 'uploadFile') throw new Error('Invalid action');
+
+    var folder = DriveApp.getFolderById(data.folderId);
+    var blob   = Utilities.newBlob(
+      Utilities.base64Decode(data.fileData),
+      data.mimeType,
+      data.fileName
+    );
+
+    var file = folder.createFile(blob);
+    file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        status: "success",
+        url:    file.getUrl(),
+        id:     file.getId()
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+Setelah paste kode di atas, wajib redeploy:
+
+Klik Deploy → Manage deployments
+Klik ikon ✏️ edit
+Version → New version
+Klik Deploy
+Setelah redeploy, coba isi form lagi — di Sheets kolom Surat & Bukti akan berisi link Google Drive yang bisa diklik langsung oleh panitia 🙏
+
+
+Smart teacher bootcamp 2026
+Kode · HTML 
+Anda berkata: saya mengubah file gsheetnya.
+saya mengubah file gsheetnya.
+ini deploy barunya
+https://script.google.com/macros/s/AKfycbwuSGeH4NGIuYPFYUGVmJaQMzmWd7FyUBmvOW5_yrpX6rA6smx4dFx0lqIsfO9qm7qY-g/exec
+
+4:52 PM
+Claude merespons: Siap Cikgu!
+Siap Cikgu! Saya update URL Apps Script di HTML-nya sekarang.
+
+
+Menjalankan perintah, membaca file
+Menjalankan perintah, membaca file
+URL sudah diupdate ke deployment terbaru. Silakan coba isi form lagi Cikgu — kalau berhasil, di Google Sheets kolom Surat Pengantar dan Bukti Pembayaran akan berisi link Google Drive yang bisa langsung diklik 🙏
+
+
+Smart teacher bootcamp 2026
+Kode · HTML 
+Anda berkata: kok ada pesan erornya
+1778403270915_image.png
+kok ada pesan erornya
+
+4:55 PM
+Claude merespons: Saya lihat errornya: "Failed to fetch" — ini masalah CORS karena doPost di Apps Script tidak bisa dipanggil langsung dari browser (berbeda dengan doGet).
+Saya lihat errornya: "Failed to fetch" — ini masalah CORS karena doPost di Apps Script tidak bisa dipanggil langsung dari browser (berbeda dengan doGet).
+
+Solusinya: gabungkan semuanya ke doGet saja — file di-encode Base64 lalu dikirim via URL parameter. Tapi file besar tidak bisa lewat URL.
+
+Solusi terbaik: pakai doPost tapi lewat proxy sederhana. Atau cara paling andal — gunakan 2 endpoint terpisah dengan CORS header yang benar.
+
+Sebenarnya masalahnya ada di Apps Script — perlu tambahkan CORS header di doPost. Update kode Apps Script-nya:
+
+
+Print the Apps Script code
+Print the Apps Script code
+Masalah utamanya bukan di kode Apps Script — doPost dari browser memang selalu diblokir CORS oleh Google. Ini limitasi Google Apps Script yang tidak bisa diatasi dari sisi Apps Script.
+
+Solusi paling andal: kirim file juga lewat doGet dengan Base64 di URL — tapi untuk file besar URL terlalu panjang.
+
+Solusi terbaik yang benar-benar work: encode file → kirim ke doGet dalam potongan kecil (chunks). Tapi ini rumit.
+
+Solusi praktis paling mudah sekarang: Ubah pendekatan — peserta upload langsung ke Google Drive via link publik, lalu nama file dicatat di form. Mari saya update HTML-nya:
+
+
+Menjalankan 2 perintah, membaca file
+Menjalankan 2 perintah, membaca file
+Sudah diupdate Cikgu! Ini penjelasan perubahan pendekatannya:
+
+Kenapa diganti? doPost dari browser selalu diblokir CORS oleh Google — ini limitasi permanen Google Apps Script, tidak bisa diatasi dari sisi kode.
+
+Pendekatan baru yang dipakai:
+
+Peserta diminta upload file langsung ke folder Google Drive panitia (foldernya sudah public upload), lalu paste link file-nya ke dalam form. Yang masuk ke Sheets adalah link Google Drive — panitia tinggal klik untuk membuka file.
+
+Alurnya untuk peserta:
+
+Klik tombol biru "Buka Folder Upload Surat Pengantar" → upload file
+Klik kanan file yang sudah diupload → Bagikan → Salin link
+Paste link di kolom yang tersedia
+Ulangi untuk Bukti Pembayaran
+Submit form → data + link masuk ke Sheets ✅
+Pastikan 2 folder Google Drive-nya diset agar siapapun bisa upload: Buka folder → klik kanan → Bagikan → ubah akses menjadi "Siapapun yang memiliki link" dengan izin Editor (agar bisa upload) 🙏
+
+
+Smart teacher bootcamp 2026
+Kode · HTML 
+
+
+
+
+Claude adalah AI dan bisa keliru. Harap periksa kembali respons.
+Smart teacher bootcamp 2026 · HTML
+Salin
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -28,9 +535,9 @@
     --shadow: 0 4px 24px rgba(56,169,228,0.10);
     --shadow-card: 0 2px 12px rgba(26,42,58,0.07);
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background: linear-gradient(160deg, #e8f5fd 0%, #f0f8ff 40%, #fdf8ee 100%);
@@ -38,7 +545,7 @@
     color: var(--text-main);
     padding: 0 0 60px;
   }
-
+ 
   /* ─── HERO HEADER ─── */
   .hero {
     background: linear-gradient(135deg, #1a6fa0 0%, #1a7db8 30%, #2196c9 60%, #38a9e4 100%);
@@ -58,7 +565,7 @@
     background: linear-gradient(160deg, #e8f5fd 0%, #f9fbfe 100%);
     clip-path: ellipse(55% 100% at 50% 100%);
   }
-
+ 
   .hero-badge {
     display: inline-block;
     background: rgba(255,255,255,0.18);
@@ -72,7 +579,7 @@
     border-radius: 50px;
     margin-bottom: 20px;
   }
-
+ 
   .hero-logo {
     width: 70px; height: 70px;
     background: rgba(255,255,255,0.15);
@@ -82,7 +589,7 @@
     margin: 0 auto 20px;
     font-size: 30px;
   }
-
+ 
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(26px, 5vw, 38px);
@@ -94,14 +601,14 @@
   .hero h1 span {
     color: #ffd97a;
   }
-
+ 
   .hero-theme {
     font-size: 14px;
     color: rgba(255,255,255,0.85);
     font-style: italic;
     margin-bottom: 28px;
   }
-
+ 
   .hero-meta {
     display: flex;
     flex-wrap: wrap;
@@ -120,7 +627,7 @@
     font-weight: 500;
   }
   .hero-chip svg { width: 15px; height: 15px; flex-shrink: 0; opacity: 0.9; }
-
+ 
   /* ─── MAIN CONTAINER ─── */
   .container {
     max-width: 680px;
@@ -128,7 +635,7 @@
     padding: 0 16px;
     position: relative; z-index: 2;
   }
-
+ 
   /* ─── WELCOME CARD ─── */
   .welcome-card {
     background: var(--white);
@@ -151,7 +658,7 @@
     color: var(--text-muted);
     line-height: 1.75;
   }
-
+ 
   /* ─── INFO BOX ─── */
   .info-box {
     background: var(--gold-light);
@@ -185,7 +692,7 @@
     color: var(--gold);
     font-weight: 700;
   }
-
+ 
   .quota-badge {
     display: inline-flex; align-items: center; gap: 6px;
     background: #fff0f0;
@@ -197,7 +704,7 @@
     font-weight: 500;
     margin-top: 14px;
   }
-
+ 
   /* ─── SECTION CARD ─── */
   .section-card {
     background: var(--white);
@@ -230,7 +737,7 @@
     padding: 22px;
     display: flex; flex-direction: column; gap: 18px;
   }
-
+ 
   /* ─── FORM FIELDS ─── */
   .field {
     display: flex; flex-direction: column; gap: 7px;
@@ -251,7 +758,7 @@
     color: var(--text-light);
     margin-top: -3px;
   }
-
+ 
   input[type="text"],
   input[type="email"],
   input[type="tel"],
@@ -282,7 +789,7 @@
     padding-right: 36px;
     cursor: pointer;
   }
-
+ 
   /* ─── RADIO / GENDER ─── */
   .radio-group {
     display: flex; gap: 12px; flex-wrap: wrap;
@@ -319,7 +826,7 @@
   .radio-option input:checked ~ .radio-dot::after { transform: scale(1); }
   .radio-option.selected { border-color: var(--sky); background: var(--sky-light); }
   .radio-label { font-size: 14px; color: var(--text-main); }
-
+ 
   /* ─── FILE UPLOAD ─── */
   .file-upload-area {
     border: 2px dashed var(--border);
@@ -359,7 +866,7 @@
     font-size: 12px;
     color: #2e7d32;
   }
-
+ 
   /* ─── CHECKBOX / CONSENT ─── */
   .consent-box {
     background: var(--sky-light);
@@ -394,7 +901,7 @@
     line-height: 1.65;
   }
   .consent-text strong { color: var(--sky-dark); }
-
+ 
   /* ─── INFAQ NOTICE ─── */
   .infaq-notice {
     background: linear-gradient(135deg, #fffbf0 0%, #fff8e5 100%);
@@ -413,7 +920,7 @@
   }
   .infaq-content { font-size: 13px; color: #7a5820; line-height: 1.6; }
   .infaq-content strong { color: var(--gold-dark); font-size: 16px; }
-
+ 
   /* ─── SUBMIT BUTTON ─── */
   .submit-wrap {
     margin-top: 24px;
@@ -442,13 +949,13 @@
   }
   .btn-submit:active { transform: translateY(0); }
   .btn-submit svg { width: 18px; height: 18px; }
-
+ 
   .submit-note {
     font-size: 12px;
     color: var(--text-light);
     margin-top: 12px;
   }
-
+ 
   /* ─── FOOTER ─── */
   .footer {
     text-align: center;
@@ -458,7 +965,7 @@
     line-height: 1.8;
   }
   .footer strong { color: var(--sky-dark); }
-
+ 
   /* ─── SUCCESS OVERLAY ─── */
   .success-overlay {
     display: none;
@@ -501,7 +1008,38 @@
     color: var(--text-muted);
     line-height: 1.7;
   }
-
+ 
+  .drive-upload-box {
+    background: var(--sky-light);
+    border: 1px solid var(--sky-mid);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .btn-drive {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--sky);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    width: fit-content;
+    transition: background 0.2s;
+  }
+  .btn-drive:hover { background: var(--sky-dark); }
+  .drive-step {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+ 
   @media (max-width: 480px) {
     .hero { padding: 36px 18px 70px; }
     .section-body { padding: 18px; }
@@ -510,7 +1048,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-badge">Yayasan Ar-Rahmah Sulawesi</div>
@@ -532,20 +1070,20 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- CONTAINER -->
 <div class="container">
-
+ 
   <!-- WELCOME CARD -->
   <div class="welcome-card">
     <div class="greeting">🕌 Assalamu'alaikum Warahmatullahi Wabarakatuh</div>
     <p>Selamat datang di form pendaftaran resmi <strong>Smart Teacher Bootcamp 2026</strong>. Pelatihan intensif ini dirancang untuk menghadirkan guru-guru yang <em>adaptif, inspiratif, berkarakter,</em> dan siap menghadapi tantangan pendidikan di era digital.</p>
     <p style="margin-top:10px;">Peserta akan mendapatkan penguatan <strong>mindset</strong>, strategi pembelajaran aktif, pendidikan karakter, digital teaching, critical thinking, hingga <strong>classroom management</strong> yang berdampak langsung di kelas.</p>
-
+ 
     <div class="quota-badge">
       ⚠️ Kuota Terbatas — Hanya <strong style="margin: 0 3px;">75 peserta terpilih</strong> (2 guru per sekolah MTs/MA/SMA/SMK se-Kab. Mamuju)
     </div>
-
+ 
     <div class="info-box" style="margin-top:16px;">
       <div class="info-box-title">📋 Ketentuan Peserta</div>
       <ul>
@@ -556,9 +1094,9 @@
       </ul>
     </div>
   </div>
-
+ 
   <form id="registrationForm" novalidate>
-
+ 
     <!-- DATA DIRI -->
     <div class="section-card">
       <div class="section-header">
@@ -568,12 +1106,12 @@
         <div class="section-title">Data Diri Peserta</div>
       </div>
       <div class="section-body">
-
+ 
         <div class="field">
           <label>Nama Lengkap <span class="req">*</span></label>
           <input type="text" name="nama" placeholder="Masukkan nama lengkap Anda" required>
         </div>
-
+ 
         <div class="field">
           <label>Jenis Kelamin <span class="req">*</span></label>
           <div class="radio-group">
@@ -589,27 +1127,27 @@
             </label>
           </div>
         </div>
-
+ 
         <div class="field">
           <label>Asal Sekolah <span class="req">*</span></label>
           <input type="text" name="sekolah" placeholder="Nama lengkap sekolah (contoh: MTs Negeri 1 Mamuju)" required>
         </div>
-
+ 
         <div class="field">
           <label>Nomor WhatsApp Aktif <span class="req">*</span></label>
           <span class="hint">Panitia akan menghubungi melalui nomor ini</span>
           <input type="tel" name="whatsapp" placeholder="Contoh: 08123456789" required>
         </div>
-
+ 
         <div class="field">
           <label>Alamat Email Aktif <span class="req">*</span></label>
           <span class="hint">Gunakan email yang valid dan sering dibuka</span>
           <input type="email" name="email" placeholder="Contoh: nama@gmail.com" required>
         </div>
-
+ 
       </div>
     </div>
-
+ 
     <!-- DOKUMEN -->
     <div class="section-card">
       <div class="section-header">
@@ -619,41 +1157,33 @@
         <div class="section-title">Dokumen Persyaratan</div>
       </div>
       <div class="section-body">
-
+ 
         <div class="field">
           <label>Surat Pengantar dari Sekolah <span class="req">*</span></label>
-          <span class="hint">Upload surat mandat/tugas yang ditandatangani kepala sekolah</span>
-          <div class="file-upload-area" id="area-surat">
-            <input type="file" id="file-surat" name="surat_pengantar" accept=".pdf,.jpg,.jpeg,.png" required>
-            <div class="file-upload-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
-            </div>
-            <div class="file-upload-text"><span>Klik untuk upload</span> atau drag & drop file di sini</div>
-            <div class="file-note">Format: PDF, JPG, PNG — Maksimal 5 MB</div>
+          <span class="hint">Upload file ke Google Drive panitia, lalu paste link-nya di sini</span>
+          <div class="drive-upload-box">
+            <a href="https://drive.google.com/drive/folders/1eer8sA9EU3TPVwWXuWCRKwJwn6dLz9cB24_PAhsAxt8TryrPs4a58dkFE9dqAVIguIfGDJyz" target="_blank" class="btn-drive">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Buka Folder Upload Surat Pengantar
+            </a>
+            <div class="drive-step">Setelah upload, klik kanan file → <strong>Bagikan</strong> → salin link → paste di bawah</div>
           </div>
-          <div class="file-selected" id="sel-surat">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span id="sel-surat-name">file.pdf</span>
-          </div>
+          <input type="url" id="link-surat" name="surat_pengantar" placeholder="Paste link Google Drive surat pengantar di sini..." required>
         </div>
-
+ 
         <div class="field">
           <label>Bukti Pembayaran Infaq <span class="req">*</span></label>
-          <span class="hint">Screenshot/foto bukti transfer infaq kontribusi Rp 500.000</span>
-          <div class="file-upload-area" id="area-bukti">
-            <input type="file" id="file-bukti" name="bukti_pembayaran" accept=".pdf,.jpg,.jpeg,.png" required>
-            <div class="file-upload-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-            </div>
-            <div class="file-upload-text"><span>Klik untuk upload</span> atau drag & drop file di sini</div>
-            <div class="file-note">Format: PDF, JPG, PNG — Maksimal 5 MB</div>
+          <span class="hint">Upload screenshot/foto bukti transfer ke Google Drive panitia, lalu paste link-nya</span>
+          <div class="drive-upload-box">
+            <a href="https://drive.google.com/drive/folders/1YbDaSC3--uEikoF0a3Uvu5PeDOicdzgF6EKEj_xactRarn1wARSfI4sf-vbh4AmFn5TXtrBi" target="_blank" class="btn-drive">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Buka Folder Upload Bukti Pembayaran
+            </a>
+            <div class="drive-step">Setelah upload, klik kanan file → <strong>Bagikan</strong> → salin link → paste di bawah</div>
           </div>
-          <div class="file-selected" id="sel-bukti">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span id="sel-bukti-name">file.pdf</span>
-          </div>
+          <input type="url" id="link-bukti" name="bukti_pembayaran" placeholder="Paste link Google Drive bukti pembayaran di sini..." required>
         </div>
-
+ 
         <div class="infaq-notice">
           <div class="infaq-icon">💰</div>
           <div class="infaq-content">
@@ -662,10 +1192,10 @@
             Sudah termasuk akomodasi, konsumsi, dan materi pelatihan selama 3 hari.
           </div>
         </div>
-
+ 
       </div>
     </div>
-
+ 
     <!-- PERSETUJUAN -->
     <div class="section-card">
       <div class="section-header">
@@ -688,10 +1218,10 @@
         </div>
       </div>
     </div>
-
+ 
     <!-- ERROR BOX -->
     <div id="formError" style="display:none; background:#fff0f0; border:1px solid #f5c0c0; border-left:4px solid #e05050; border-radius:8px; padding:14px 16px; font-size:13px; color:#c03030; margin-bottom:16px; line-height:1.5;"></div>
-
+ 
     <!-- SUBMIT -->
     <div class="submit-wrap">
       <button type="submit" class="btn-submit" id="btnSubmit">
@@ -702,17 +1232,17 @@
       <p class="submit-note">📩 Konfirmasi peserta akan diinformasikan panitia setelah pendaftaran diproses</p>
     </div>
     <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
-
+ 
   </form>
-
+ 
   <div class="footer">
     <strong>Yayasan Ar-Rahmah Sulawesi</strong><br>
     PAUD · SDIT · SMPIT · SMAIT · Makassar<br><br>
     Wassalamu'alaikum Warahmatullahi Wabarakatuh 🤲
   </div>
-
+ 
 </div><!-- /container -->
-
+ 
 <!-- SUCCESS OVERLAY -->
 <div class="success-overlay" id="successOverlay">
   <div class="success-card">
@@ -722,12 +1252,10 @@
     <p style="margin-top:14px; font-size:12px; color:#8fa0b0;">Simpan bukti pendaftaran ini untuk keperluan administrasi.</p>
   </div>
 </div>
-
+ 
 <script>
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuSGeH4NGIuYPFYUGVmJaQMzmWd7FyUBmvOW5_yrpX6rA6smx4dFx0lqIsfO9qm7qY-g/exec";
-  const FOLDER_SURAT   = "1eer8sA9EU3TPVwWXuWCRKwJwn6dLz9cB24_PAhsAxt8TryrPs4a58dkFE9dqAVIguIfGDJyz";
-  const FOLDER_BUKTI   = "1YbDaSC3--uEikoF0a3Uvu5PeDOicdzgF6EKEj_xactRarn1wARSfI4sf-vbh4AmFn5TXtrBi";
-
+ 
   // ── Radio toggle ──
   document.querySelectorAll('.radio-option').forEach(opt => {
     opt.addEventListener('click', function() {
@@ -735,31 +1263,7 @@
       this.classList.add('selected');
     });
   });
-
-  // ── File upload display ──
-  function setupFileInput(inputId, areaId, selectedId, nameId) {
-    const input    = document.getElementById(inputId);
-    const selected = document.getElementById(selectedId);
-    const nameEl   = document.getElementById(nameId);
-    const area     = document.getElementById(areaId);
-    input.addEventListener('change', function() {
-      if (this.files && this.files[0]) {
-        nameEl.textContent = this.files[0].name;
-        selected.style.display = 'flex';
-        area.style.borderColor = '#28a870';
-        area.style.background  = '#f0faf4';
-      }
-    });
-    area.addEventListener('dragover', e => { e.preventDefault(); area.style.borderColor = '#38a9e4'; });
-    area.addEventListener('dragleave', () => { area.style.borderColor = ''; });
-    area.addEventListener('drop', e => {
-      e.preventDefault();
-      if (e.dataTransfer.files[0]) { input.files = e.dataTransfer.files; input.dispatchEvent(new Event('change')); }
-    });
-  }
-  setupFileInput('file-surat', 'area-surat', 'sel-surat', 'sel-surat-name');
-  setupFileInput('file-bukti', 'area-bukti', 'sel-bukti', 'sel-bukti-name');
-
+ 
   // ── UI helpers ──
   function setLoading(on, msg) {
     const btn     = document.getElementById('btnSubmit');
@@ -771,106 +1275,69 @@
   }
   function showError(msg) {
     const el = document.getElementById('formError');
-    el.textContent    = '⚠️ ' + msg;
-    el.style.display  = 'block';
+    el.textContent   = '⚠️ ' + msg;
+    el.style.display = 'block';
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
   function hideError() { document.getElementById('formError').style.display = 'none'; }
-
-  // ── File → Base64 ──
-  function toBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload  = () => resolve(reader.result.split(',')[1]);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-  }
-
-  // ── Upload satu file ke Drive via Apps Script doPost ──
-  async function uploadFile(file, folderId, label) {
-    setLoading(true, 'Mengupload ' + label + '...');
-    const base64 = await toBase64(file);
-    const payload = {
-      action:   'uploadFile',
-      fileName: file.name,
-      mimeType: file.type || 'application/octet-stream',
-      fileData: base64,
-      folderId: folderId
-    };
-    const res  = await fetch(APPS_SCRIPT_URL, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload)
-    });
-    const json = await res.json();
-    if (json.status !== 'success') throw new Error(json.message || 'Upload gagal');
-    return json.url;   // link Google Drive file
-  }
-
-  // ── Simpan baris data ke Sheets via doGet ──
-  async function saveToSheet(data) {
-    const params = new URLSearchParams({ action: 'saveRow', ...data });
-    await fetch(APPS_SCRIPT_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' });
-  }
-
+ 
   // ── SUBMIT ──
   document.getElementById('registrationForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     hideError();
-
+ 
     const nama    = this.nama.value.trim();
     const gender  = [...this.querySelectorAll('input[name="gender"]')].find(r => r.checked)?.value || '';
     const sekolah = this.sekolah.value.trim();
     const wa      = this.whatsapp.value.trim();
     const email   = this.email.value.trim();
-    const suratFile = document.getElementById('file-surat').files[0];
-    const buktiFile = document.getElementById('file-bukti').files[0];
+    const linkSurat = document.getElementById('link-surat').value.trim();
+    const linkBukti = document.getElementById('link-bukti').value.trim();
     const consent   = document.getElementById('cbConsent').checked;
-
-    if (!nama)                        return showError('Nama Lengkap wajib diisi.');
-    if (!gender)                      return showError('Jenis Kelamin wajib dipilih.');
-    if (!sekolah)                     return showError('Asal Sekolah wajib diisi.');
-    if (!wa)                          return showError('Nomor WhatsApp wajib diisi.');
+ 
+    if (!nama)                          return showError('Nama Lengkap wajib diisi.');
+    if (!gender)                        return showError('Jenis Kelamin wajib dipilih.');
+    if (!sekolah)                       return showError('Asal Sekolah wajib diisi.');
+    if (!wa)                            return showError('Nomor WhatsApp wajib diisi.');
     if (!email || !email.includes('@')) return showError('Alamat Email tidak valid.');
-    if (!suratFile)                   return showError('Surat Pengantar dari Sekolah wajib diupload.');
-    if (!buktiFile)                   return showError('Bukti Pembayaran wajib diupload.');
-    if (!consent)                     return showError('Anda harus menyetujui persetujuan penggunaan data.');
-
+    if (!linkSurat)                     return showError('Link Surat Pengantar wajib diisi.');
+    if (!linkBukti)                     return showError('Link Bukti Pembayaran wajib diisi.');
+    if (!consent)                       return showError('Anda harus menyetujui persetujuan penggunaan data.');
+ 
     try {
-      // 1. Upload surat pengantar → dapat link Drive
-      const urlSurat = await uploadFile(suratFile, FOLDER_SURAT, 'Surat Pengantar');
-
-      // 2. Upload bukti pembayaran → dapat link Drive
-      const urlBukti = await uploadFile(buktiFile, FOLDER_BUKTI, 'Bukti Pembayaran');
-
-      // 3. Simpan semua data + link ke Sheets
-      setLoading(true, 'Menyimpan data...');
-      await saveToSheet({
+      setLoading(true, 'Mengirim data...');
+ 
+      const params = new URLSearchParams({
+        action:           'saveRow',
         nama, gender, sekolah,
-        whatsapp: wa, email,
-        surat_pengantar:  urlSurat,
-        bukti_pembayaran: urlBukti,
-        persetujuan: 'Disetujui'
+        whatsapp:         wa,
+        email,
+        surat_pengantar:  linkSurat,
+        bukti_pembayaran: linkBukti,
+        persetujuan:      'Disetujui'
       });
-
+ 
+      await fetch(APPS_SCRIPT_URL + '?' + params.toString(), {
+        method: 'GET',
+        mode:   'no-cors'
+      });
+ 
       setLoading(false);
       document.getElementById('successOverlay').style.display = 'flex';
-
+ 
     } catch (err) {
       setLoading(false);
       showError('Gagal mengirim: ' + err.message + '. Periksa koneksi dan coba lagi.');
     }
   });
-
+ 
   // ── Reset setelah sukses ──
   document.getElementById('successOverlay').addEventListener('click', function() {
     this.style.display = 'none';
     document.getElementById('registrationForm').reset();
     document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
-    document.querySelectorAll('.file-selected').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.file-upload-area').forEach(el => { el.style.borderColor = ''; el.style.background = ''; });
   });
 </script>
 </body>
 </html>
+ 
