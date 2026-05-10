@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pendaftaran Smart Teacher Bootcamp 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #38a9e4;
+    --sky-dark: #1a7db8;
+    --sky-light: #e8f5fd;
+    --sky-mid: #b3ddf5;
+    --gold: #c9993a;
+    --gold-light: #f5e9d0;
+    --gold-dark: #a07820;
+    --white: #ffffff;
+    --off-white: #f9fbfe;
+    --text-main: #1a2a3a;
+    --text-muted: #5a7080;
+    --text-light: #8fa0b0;
+    --border: #d0e5f5;
+    --border-focus: #38a9e4;
+    --error: #e05050;
+    --success: #28a870;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 4px 24px rgba(56,169,228,0.10);
+    --shadow-card: 0 2px 12px rgba(26,42,58,0.07);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(160deg, #e8f5fd 0%, #f0f8ff 40%, #fdf8ee 100%);
+    min-height: 100vh;
+    color: var(--text-main);
+    padding: 0 0 60px;
+  }
+
+  /* ─── HERO HEADER ─── */
+  .hero {
+    background: linear-gradient(135deg, #1a6fa0 0%, #1a7db8 30%, #2196c9 60%, #38a9e4 100%);
+    padding: 48px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -1px; left: 0; right: 0; height: 60px;
+    background: linear-gradient(160deg, #e8f5fd 0%, #f9fbfe 100%);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .hero-logo {
+    width: 70px; height: 70px;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 30px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .hero h1 span {
+    color: #ffd97a;
+  }
+
+  .hero-theme {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    position: relative; z-index: 1;
+  }
+  .hero-chip {
+    display: flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    padding: 7px 14px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .hero-chip svg { width: 15px; height: 15px; flex-shrink: 0; opacity: 0.9; }
+
+  /* ─── MAIN CONTAINER ─── */
+  .container {
+    max-width: 680px;
+    margin: -30px auto 0;
+    padding: 0 16px;
+    position: relative; z-index: 2;
+  }
+
+  /* ─── WELCOME CARD ─── */
+  .welcome-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .welcome-card .greeting {
+    font-size: 13px;
+    color: var(--sky-dark);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .welcome-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* ─── INFO BOX ─── */
+  .info-box {
+    background: var(--gold-light);
+    border: 1px solid #e8d0a0;
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    margin: 18px 0 0;
+  }
+  .info-box-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .info-box ul {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .info-box ul li {
+    font-size: 13px;
+    color: #7a5820;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .info-box ul li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .quota-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #fff0f0;
+    border: 1px solid #f5c0c0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 12.5px;
+    color: #c03030;
+    font-weight: 500;
+    margin-top: 14px;
+  }
+
+  /* ─── SECTION CARD ─── */
+  .section-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(90deg, var(--sky-light) 0%, #f5faff 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 22px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-icon {
+    width: 34px; height: 34px;
+    background: var(--sky);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-icon svg { width: 18px; height: 18px; color: #fff; }
+  .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--sky-dark);
+  }
+  .section-body {
+    padding: 22px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+
+  /* ─── FORM FIELDS ─── */
+  .field {
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex; align-items: center; gap: 4px;
+  }
+  .field label .req {
+    color: #e05050;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .field .hint {
+    font-size: 11.5px;
+    color: var(--text-light);
+    margin-top: -3px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-main);
+    background: var(--off-white);
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  input::placeholder, textarea::placeholder { color: var(--text-light); }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--sky);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(56,169,228,0.12);
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238fa0b0' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  /* ─── RADIO / GENDER ─── */
+  .radio-group {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .radio-option {
+    flex: 1; min-width: 120px;
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    user-select: none;
+    background: var(--off-white);
+  }
+  .radio-option:hover { border-color: var(--sky-mid); background: var(--sky-light); }
+  .radio-option input[type="radio"] { display: none; }
+  .radio-option .radio-dot {
+    width: 18px; height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s;
+  }
+  .radio-option .radio-dot::after {
+    content: ''; width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sky);
+    transform: scale(0);
+    transition: transform 0.15s;
+  }
+  .radio-option input:checked ~ .radio-dot { border-color: var(--sky); }
+  .radio-option input:checked ~ .radio-dot::after { transform: scale(1); }
+  .radio-option.selected { border-color: var(--sky); background: var(--sky-light); }
+  .radio-label { font-size: 14px; color: var(--text-main); }
+
+  /* ─── FILE UPLOAD ─── */
+  .file-upload-area {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: var(--off-white);
+    position: relative;
+  }
+  .file-upload-area:hover { border-color: var(--sky); background: var(--sky-light); }
+  .file-upload-area input[type="file"] {
+    position: absolute; inset: 0;
+    opacity: 0; cursor: pointer; width: 100%; height: 100%;
+  }
+  .file-upload-icon {
+    width: 40px; height: 40px;
+    background: var(--sky-light);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 10px;
+  }
+  .file-upload-icon svg { width: 20px; height: 20px; color: var(--sky); }
+  .file-upload-text { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+  .file-upload-text span { color: var(--sky); font-weight: 600; }
+  .file-note { font-size: 11px; color: var(--text-light); margin-top: 6px; }
+  .file-selected {
+    display: none;
+    align-items: center; gap: 8px;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #2e7d32;
+  }
+
+  /* ─── CHECKBOX / CONSENT ─── */
+  .consent-box {
+    background: var(--sky-light);
+    border: 1px solid var(--sky-mid);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+  }
+  .consent-label {
+    display: flex; align-items: flex-start; gap: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .consent-label input[type="checkbox"] { display: none; }
+  .checkbox-custom {
+    width: 20px; height: 20px; min-width: 20px;
+    border: 2px solid var(--sky-mid);
+    border-radius: 5px;
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    margin-top: 1px;
+  }
+  .checkbox-custom svg { display: none; width: 12px; height: 12px; }
+  .consent-label input:checked + .checkbox-custom {
+    background: var(--sky);
+    border-color: var(--sky);
+  }
+  .consent-label input:checked + .checkbox-custom svg { display: block; }
+  .consent-text {
+    font-size: 13px;
+    color: var(--text-main);
+    line-height: 1.65;
+  }
+  .consent-text strong { color: var(--sky-dark); }
+
+  /* ─── INFAQ NOTICE ─── */
+  .infaq-notice {
+    background: linear-gradient(135deg, #fffbf0 0%, #fff8e5 100%);
+    border: 1px solid #e8d090;
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .infaq-icon {
+    width: 36px; height: 36px; min-width: 36px;
+    background: var(--gold-light);
+    border: 1px solid #d4b060;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .infaq-content { font-size: 13px; color: #7a5820; line-height: 1.6; }
+  .infaq-content strong { color: var(--gold-dark); font-size: 16px; }
+
+  /* ─── SUBMIT BUTTON ─── */
+  .submit-wrap {
+    margin-top: 24px;
+    text-align: center;
+  }
+  .btn-submit {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: linear-gradient(135deg, var(--sky-dark) 0%, var(--sky) 100%);
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(56,169,228,0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+    width: 100%;
+    max-width: 360px;
+    letter-spacing: 0.3px;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(56,169,228,0.45);
+  }
+  .btn-submit:active { transform: translateY(0); }
+  .btn-submit svg { width: 18px; height: 18px; }
+
+  .submit-note {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 12px;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    padding: 32px 16px 0;
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+  .footer strong { color: var(--sky-dark); }
+
+  /* ─── SUCCESS OVERLAY ─── */
+  .success-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(26,42,58,0.7);
+    z-index: 999;
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .success-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 32px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes popIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .success-icon {
+    width: 72px; height: 72px;
+    background: #e8f5fd;
+    border: 2px solid var(--sky-mid);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 32px;
+  }
+  .success-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--text-main);
+    margin-bottom: 10px;
+  }
+  .success-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 36px 18px 70px; }
+    .section-body { padding: 18px; }
+    .welcome-card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Yayasan Ar-Rahmah Sulawesi</div>
+  <div class="hero-logo">📚</div>
+  <h1>Smart Teacher<br><span>Bootcamp 2026</span></h1>
+  <p class="hero-theme">"Guru Berdaya, Siswa Berjaya"</p>
+  <div class="hero-meta">
+    <div class="hero-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Asrama Haji Kemenag Sulbar, Mamuju
+    </div>
+    <div class="hero-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      26–28 Juni 2026
+    </div>
+    <div class="hero-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Check-in: Jum'at 08.00–12.00 WITA
+    </div>
+  </div>
+</div>
+
+<!-- CONTAINER -->
+<div class="container">
+
+  <!-- WELCOME CARD -->
+  <div class="welcome-card">
+    <div class="greeting">🕌 Assalamu'alaikum Warahmatullahi Wabarakatuh</div>
+    <p>Selamat datang di form pendaftaran resmi <strong>Smart Teacher Bootcamp 2026</strong>. Pelatihan intensif ini dirancang untuk menghadirkan guru-guru yang <em>adaptif, inspiratif, berkarakter,</em> dan siap menghadapi tantangan pendidikan di era digital.</p>
+    <p style="margin-top:10px;">Peserta akan mendapatkan penguatan <strong>mindset</strong>, strategi pembelajaran aktif, pendidikan karakter, digital teaching, critical thinking, hingga <strong>classroom management</strong> yang berdampak langsung di kelas.</p>
+
+    <div class="quota-badge">
+      ⚠️ Kuota Terbatas — Hanya <strong style="margin: 0 3px;">75 peserta terpilih</strong> (2 guru per sekolah MTs/MA/SMA/SMK se-Kab. Mamuju)
+    </div>
+
+    <div class="info-box" style="margin-top:16px;">
+      <div class="info-box-title">📋 Ketentuan Peserta</div>
+      <ul>
+        <li>Memiliki identitas keguruan yang jelas & surat mandat/tugas dari sekolah</li>
+        <li>Membawa alat tulis pribadi selama pelatihan berlangsung</li>
+        <li>Bersedia mengikuti seluruh tata tertib training hingga selesai</li>
+        <li>Bersedia mengikuti semua sesi pelatihan secara aktif dan disiplin</li>
+      </ul>
+    </div>
+  </div>
+
+  <form id="registrationForm" novalidate>
+
+    <!-- DATA DIRI -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="section-title">Data Diri Peserta</div>
+      </div>
+      <div class="section-body">
+
+        <div class="field">
+          <label>Nama Lengkap <span class="req">*</span></label>
+          <input type="text" name="nama" placeholder="Masukkan nama lengkap Anda" required>
+        </div>
+
+        <div class="field">
+          <label>Jenis Kelamin <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option" id="opt-laki">
+              <input type="radio" name="gender" value="Laki-laki" required>
+              <div class="radio-dot"></div>
+              <span class="radio-label">👨 Laki-laki</span>
+            </label>
+            <label class="radio-option" id="opt-perempuan">
+              <input type="radio" name="gender" value="Perempuan">
+              <div class="radio-dot"></div>
+              <span class="radio-label">👩 Perempuan</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Asal Sekolah <span class="req">*</span></label>
+          <input type="text" name="sekolah" placeholder="Nama lengkap sekolah (contoh: MTs Negeri 1 Mamuju)" required>
+        </div>
+
+        <div class="field">
+          <label>Nomor WhatsApp Aktif <span class="req">*</span></label>
+          <span class="hint">Panitia akan menghubungi melalui nomor ini</span>
+          <input type="tel" name="whatsapp" placeholder="Contoh: 08123456789" required>
+        </div>
+
+        <div class="field">
+          <label>Alamat Email Aktif <span class="req">*</span></label>
+          <span class="hint">Gunakan email yang valid dan sering dibuka</span>
+          <input type="email" name="email" placeholder="Contoh: nama@gmail.com" required>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DOKUMEN -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="section-title">Dokumen Persyaratan</div>
+      </div>
+      <div class="section-body">
+
+        <div class="field">
+          <label>Surat Pengantar dari Sekolah <span class="req">*</span></label>
+          <span class="hint">Upload surat mandat/tugas yang ditandatangani kepala sekolah</span>
+          <div class="file-upload-area" id="area-surat">
+            <input type="file" id="file-surat" name="surat_pengantar" accept=".pdf,.jpg,.jpeg,.png" required>
+            <div class="file-upload-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+            </div>
+            <div class="file-upload-text"><span>Klik untuk upload</span> atau drag & drop file di sini</div>
+            <div class="file-note">Format: PDF, JPG, PNG — Maksimal 5 MB</div>
+          </div>
+          <div class="file-selected" id="sel-surat">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span id="sel-surat-name">file.pdf</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Bukti Pembayaran Infaq <span class="req">*</span></label>
+          <span class="hint">Screenshot/foto bukti transfer infaq kontribusi Rp 500.000</span>
+          <div class="file-upload-area" id="area-bukti">
+            <input type="file" id="file-bukti" name="bukti_pembayaran" accept=".pdf,.jpg,.jpeg,.png" required>
+            <div class="file-upload-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <div class="file-upload-text"><span>Klik untuk upload</span> atau drag & drop file di sini</div>
+            <div class="file-note">Format: PDF, JPG, PNG — Maksimal 5 MB</div>
+          </div>
+          <div class="file-selected" id="sel-bukti">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span id="sel-bukti-name">file.pdf</span>
+          </div>
+        </div>
+
+        <div class="infaq-notice">
+          <div class="infaq-icon">💰</div>
+          <div class="infaq-content">
+            Infaq kontribusi peserta sebesar<br>
+            <strong>Rp 500.000 / orang</strong><br>
+            Sudah termasuk akomodasi, konsumsi, dan materi pelatihan selama 3 hari.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PERSETUJUAN -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div class="section-title">Persetujuan Penggunaan Data</div>
+      </div>
+      <div class="section-body">
+        <div class="consent-box">
+          <label class="consent-label">
+            <input type="checkbox" name="persetujuan" id="cbConsent" required>
+            <div class="checkbox-custom">
+              <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg>
+            </div>
+            <span class="consent-text">
+              Saya menyatakan bahwa data yang saya isi adalah <strong>benar dan dapat dipertanggungjawabkan</strong>. Saya menyetujui bahwa data ini akan digunakan untuk keperluan proses pendaftaran, administrasi, dan konfirmasi keikutsertaan dalam <strong>Smart Teacher Bootcamp 2026</strong>.
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERROR BOX -->
+    <div id="formError" style="display:none; background:#fff0f0; border:1px solid #f5c0c0; border-left:4px solid #e05050; border-radius:8px; padding:14px 16px; font-size:13px; color:#c03030; margin-bottom:16px; line-height:1.5;"></div>
+
+    <!-- SUBMIT -->
+    <div class="submit-wrap">
+      <button type="submit" class="btn-submit" id="btnSubmit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:18px;height:18px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <span id="btnText">Kirim Pendaftaran</span>
+        <span id="btnSpinner" style="display:none; width:16px; height:16px; border:2px solid rgba(255,255,255,0.4); border-top-color:#fff; border-radius:50%; animation:spin 0.7s linear infinite;"></span>
+      </button>
+      <p class="submit-note">📩 Konfirmasi peserta akan diinformasikan panitia setelah pendaftaran diproses</p>
+    </div>
+    <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+
+  </form>
+
+  <div class="footer">
+    <strong>Yayasan Ar-Rahmah Sulawesi</strong><br>
+    PAUD · SDIT · SMPIT · SMAIT · Makassar<br><br>
+    Wassalamu'alaikum Warahmatullahi Wabarakatuh 🤲
+  </div>
+
+</div><!-- /container -->
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <div class="success-icon">✅</div>
+    <h2>Pendaftaran Terkirim!</h2>
+    <p style="margin-top:10px;">Jazakumullah khairan. Data Anda berhasil kami terima. Panitia akan menghubungi Anda melalui WhatsApp setelah proses verifikasi selesai.</p>
+    <p style="margin-top:14px; font-size:12px; color:#8fa0b0;">Simpan bukti pendaftaran ini untuk keperluan administrasi.</p>
+  </div>
+</div>
+
+<script>
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznP0uvoFr4zlcs-iqUYrg2PRSLS0K_Mm2w2Q6YHA5ShWSRaMebn1Lw72E8Ni8WVT8Q/exec";
+
+  // Radio option visual toggle
+  document.querySelectorAll('.radio-option').forEach(opt => {
+    opt.addEventListener('click', function() {
+      document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+      this.classList.add('selected');
+    });
+  });
+
+  // File upload display
+  function setupFileInput(inputId, areaId, selectedId, nameId) {
+    const input = document.getElementById(inputId);
+    const selected = document.getElementById(selectedId);
+    const nameEl = document.getElementById(nameId);
+    const area = document.getElementById(areaId);
+    input.addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+        nameEl.textContent = this.files[0].name;
+        selected.style.display = 'flex';
+        area.style.borderColor = '#28a870';
+        area.style.background = '#f0faf4';
+      }
+    });
+    area.addEventListener('dragover', e => { e.preventDefault(); area.style.borderColor = '#38a9e4'; });
+    area.addEventListener('dragleave', () => { area.style.borderColor = ''; });
+    area.addEventListener('drop', e => {
+      e.preventDefault();
+      if (e.dataTransfer.files[0]) {
+        input.files = e.dataTransfer.files;
+        input.dispatchEvent(new Event('change'));
+      }
+    });
+  }
+  setupFileInput('file-surat', 'area-surat', 'sel-surat', 'sel-surat-name');
+  setupFileInput('file-bukti', 'area-bukti', 'sel-bukti', 'sel-bukti-name');
+
+  // Loading state helpers
+  function setLoading(on) {
+    const btn = document.getElementById('btnSubmit');
+    const btnText = document.getElementById('btnText');
+    const spinner = document.getElementById('btnSpinner');
+    btn.disabled = on;
+    btnText.textContent = on ? 'Mengirim...' : 'Kirim Pendaftaran';
+    spinner.style.display = on ? 'inline-block' : 'none';
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('formError');
+    el.textContent = '⚠️ ' + msg;
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function hideError() {
+    document.getElementById('formError').style.display = 'none';
+  }
+
+  // Form submit → kirim ke Apps Script → masuk Google Sheets
+  document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    hideError();
+
+    // Validasi manual
+    const nama = this.nama.value.trim();
+    const gender = this.gender ? [...this.querySelectorAll('input[name="gender"]')].find(r => r.checked)?.value : '';
+    const sekolah = this.sekolah.value.trim();
+    const wa = this.whatsapp.value.trim();
+    const email = this.email.value.trim();
+    const suratFile = document.getElementById('file-surat').files[0];
+    const buktiFile = document.getElementById('file-bukti').files[0];
+    const consent = document.getElementById('cbConsent').checked;
+
+    if (!nama) return showError('Nama Lengkap wajib diisi.');
+    if (!gender) return showError('Jenis Kelamin wajib dipilih.');
+    if (!sekolah) return showError('Asal Sekolah wajib diisi.');
+    if (!wa) return showError('Nomor WhatsApp wajib diisi.');
+    if (!email || !email.includes('@')) return showError('Alamat Email tidak valid.');
+    if (!suratFile) return showError('Surat Pengantar dari Sekolah wajib diupload.');
+    if (!buktiFile) return showError('Bukti Pembayaran wajib diupload.');
+    if (!consent) return showError('Anda harus menyetujui persetujuan penggunaan data.');
+
+    setLoading(true);
+
+    try {
+      const payload = {
+        nama,
+        gender,
+        sekolah,
+        whatsapp: wa,
+        email,
+        surat_pengantar: suratFile.name,
+        bukti_pembayaran: buktiFile.name,
+        persetujuan: consent ? 'Disetujui' : 'Tidak'
+      };
+
+      // Gunakan no-cors agar tidak diblokir browser (Apps Script menerima ini)
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      // Tampilkan sukses (no-cors tidak return response body, tapi data masuk)
+      setLoading(false);
+      document.getElementById('successOverlay').style.display = 'flex';
+
+    } catch (err) {
+      setLoading(false);
+      showError('Gagal mengirim data. Periksa koneksi internet Anda dan coba lagi.');
+    }
+  });
+
+  document.getElementById('successOverlay').addEventListener('click', function() {
+    this.style.display = 'none';
+    document.getElementById('registrationForm').reset();
+    document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+    document.querySelectorAll('.file-selected').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.file-upload-area').forEach(el => {
+      el.style.borderColor = '';
+      el.style.background = '';
+    });
+  });
+</script>
+</body>
+</html>
