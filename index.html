@@ -463,43 +463,14 @@
   .success-overlay {
     display: none;
     position: fixed; inset: 0;
-    background: rgba(26,42,58,0.7);
+    background: rgba(26,42,58,0.75);
     z-index: 999;
     align-items: center; justify-content: center;
     padding: 20px;
   }
-  .success-card {
-    background: #fff;
-    border-radius: 24px;
-    padding: 40px 32px;
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-    animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
   @keyframes popIn {
     from { transform: scale(0.85); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
-  }
-  .success-icon {
-    width: 72px; height: 72px;
-    background: #e8f5fd;
-    border: 2px solid var(--sky-mid);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 32px;
-  }
-  .success-card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: var(--text-main);
-    margin-bottom: 10px;
-  }
-  .success-card p {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.7;
   }
 
   .drive-upload-box {
@@ -533,18 +504,124 @@
     line-height: 1.5;
   }
 
+  /* ── QR TICKET ── */
+  .success-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 28px 24px 24px;
+    max-width: 420px;
+    width: 100%;
+    animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+  .qr-header { text-align: center; margin-bottom: 20px; }
+  .qr-check { font-size: 36px; margin-bottom: 8px; }
+  .qr-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--text-main);
+    margin-bottom: 6px;
+  }
+  .qr-sub { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  .qr-ticket {
+    background: linear-gradient(160deg, #f0f8ff 0%, #fff 60%, #fffdf5 100%);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(56,169,228,0.12);
+  }
+
+  .ticket-top {
+    background: linear-gradient(135deg, #1a6fa0 0%, #38a9e4 100%);
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .ticket-logo { font-size: 28px; }
+  .ticket-title { font-family: 'Playfair Display', serif; font-size: 15px; color: #fff; font-weight: 700; }
+  .ticket-theme { font-size: 11px; color: rgba(255,255,255,0.8); font-style: italic; margin-top: 2px; }
+
+  .ticket-info { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .ticket-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .ticket-label { font-size: 11px; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; flex-shrink: 0; min-width: 70px; padding-top: 1px; }
+  .ticket-value { font-size: 13px; color: var(--text-main); font-weight: 500; text-align: right; }
+  .ticket-id { font-family: monospace; font-size: 12px; color: var(--sky-dark); font-weight: 700; letter-spacing: 1px; }
+
+  .ticket-divider {
+    display: flex; align-items: center;
+    margin: 0 -1px;
+    position: relative;
+  }
+  .ticket-notch {
+    width: 18px; height: 18px;
+    background: linear-gradient(160deg, #e8f5fd 0%, #f0f8ff 40%, #fdf8ee 100%);
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    flex-shrink: 0;
+  }
+  .ticket-notch.left { margin-left: -9px; border-left-color: transparent; }
+  .ticket-notch.right { margin-right: -9px; border-right-color: transparent; }
+  .ticket-dash { flex: 1; border-top: 2px dashed var(--border); }
+
+  .ticket-qr-wrap {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 16px 20px;
+    gap: 8px;
+  }
+  #qrcode { border-radius: 8px; overflow: hidden; }
+  #qrcode canvas, #qrcode img { display: block; border-radius: 8px; }
+  .ticket-scan-hint { font-size: 11px; color: var(--text-light); }
+
+  .ticket-footer {
+    background: var(--sky-light);
+    border-top: 1px solid var(--border);
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+  }
+
+  .qr-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+  .btn-save {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: linear-gradient(135deg, var(--sky-dark), var(--sky));
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 600;
+    padding: 12px 24px;
+    border: none; border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(56,169,228,0.3);
+    transition: transform 0.15s;
+  }
+  .btn-save:hover { transform: translateY(-2px); }
+  .btn-close-qr {
+    background: none; border: 1.5px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .btn-close-qr:hover { border-color: var(--sky); color: var(--sky); }
+
   @media (max-width: 480px) {
     .hero { padding: 36px 18px 70px; }
     .section-body { padding: 18px; }
     .welcome-card { padding: 20px; }
   }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">Yayasan Ar-Rahmah Sulawesi</div>
+  <div class="hero-badge">Share Edu Indonesia Kab. Mamuju & Pena Indonesia</div>
   <div class="hero-logo">📚</div>
   <h1>Smart Teacher<br><span>Bootcamp 2026</span></h1>
   <p class="hero-theme">"Guru Berdaya, Siswa Berjaya"</p>
@@ -729,8 +806,8 @@
   </form>
 
   <div class="footer">
-    <strong>Yayasan Ar-Rahmah Sulawesi</strong><br>
-    PAUD · SDIT · SMPIT · SMAIT · Makassar<br><br>
+    <strong>Share Edu Indonesia Kab. Mamuju & Pena Indonesia</strong><br>
+    Berbagi - Berpadu - Berdaya<br><br>
     Wassalamu'alaikum Warahmatullahi Wabarakatuh 🤲
   </div>
 
@@ -738,16 +815,81 @@
 
 <!-- SUCCESS OVERLAY -->
 <div class="success-overlay" id="successOverlay">
-  <div class="success-card">
-    <div class="success-icon">✅</div>
-    <h2>Pendaftaran Terkirim!</h2>
-    <p style="margin-top:10px;">Jazakumullah khairan. Data Anda berhasil kami terima. Panitia akan menghubungi Anda melalui WhatsApp setelah proses verifikasi selesai.</p>
-    <p style="margin-top:14px; font-size:12px; color:#8fa0b0;">Simpan bukti pendaftaran ini untuk keperluan administrasi.</p>
+  <div class="success-card" id="successCard">
+
+    <!-- Header -->
+    <div class="qr-header">
+      <div class="qr-check">✅</div>
+      <h2>Pendaftaran Berhasil!</h2>
+      <p class="qr-sub">Jazakumullah khairan — simpan QR Code ini sebagai bukti pendaftaran Anda</p>
+    </div>
+
+    <!-- Tiket -->
+    <div class="qr-ticket" id="qrTicket">
+      <div class="ticket-top">
+        <div class="ticket-logo">📚</div>
+        <div class="ticket-event">
+          <div class="ticket-title">Smart Teacher Bootcamp 2026</div>
+          <div class="ticket-theme">"Guru Berdaya, Siswa Berjaya"</div>
+        </div>
+      </div>
+
+      <div class="ticket-info">
+        <div class="ticket-row">
+          <span class="ticket-label">Nama</span>
+          <span class="ticket-value" id="qr-nama">—</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Sekolah</span>
+          <span class="ticket-value" id="qr-sekolah">—</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Tanggal</span>
+          <span class="ticket-value">26–28 Juni 2026</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Lokasi</span>
+          <span class="ticket-value">Graha Nusa, Mamuju</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">ID Peserta</span>
+          <span class="ticket-value ticket-id" id="qr-id">—</span>
+        </div>
+      </div>
+
+      <div class="ticket-divider">
+        <div class="ticket-notch left"></div>
+        <div class="ticket-dash"></div>
+        <div class="ticket-notch right"></div>
+      </div>
+
+      <div class="ticket-qr-wrap">
+        <div id="qrcode"></div>
+        <div class="ticket-scan-hint">Scan untuk verifikasi kehadiran</div>
+      </div>
+
+      <div class="ticket-footer">
+        Share Edu Indonesia & Pena Indonesia
+      </div>
+    </div>
+
+    <!-- Tombol aksi -->
+    <div class="qr-actions">
+      <button class="btn-save" id="btnSaveQR" onclick="saveTicket()">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Simpan sebagai Gambar
+      </button>
+      <button class="btn-close-qr" onclick="closeOverlay()">Tutup</button>
+    </div>
+
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuSGeH4NGIuYPFYUGVmJaQMzmWd7FyUBmvOW5_yrpX6rA6smx4dFx0lqIsfO9qm7qY-g/exec";
+
+  let qrInstance = null;
 
   // ── Radio toggle ──
   document.querySelectorAll('.radio-option').forEach(opt => {
@@ -773,6 +915,81 @@
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
   function hideError() { document.getElementById('formError').style.display = 'none'; }
+
+  // ── Generate ID peserta unik ──
+  function generateID(nama, sekolah) {
+    const now   = new Date();
+    const stamp = now.getFullYear().toString().slice(-2)
+                + String(now.getMonth()+1).padStart(2,'0')
+                + String(now.getDate()).padStart(2,'0');
+    const rand  = Math.floor(Math.random() * 900 + 100);
+    const inisial = (nama.split(' ').map(w => w[0]).join('').toUpperCase() + 'XX').slice(0,3);
+    return 'STB26-' + inisial + stamp + rand;
+  }
+
+  // ── Tampilkan QR ticket ──
+  function showQRTicket(nama, sekolah, pesertaId) {
+    document.getElementById('qr-nama').textContent    = nama;
+    document.getElementById('qr-sekolah').textContent = sekolah;
+    document.getElementById('qr-id').textContent      = pesertaId;
+
+    // Data yang di-encode ke QR
+    const qrData = JSON.stringify({
+      id:      pesertaId,
+      nama:    nama,
+      sekolah: sekolah,
+      event:   'Smart Teacher Bootcamp 2026',
+      tanggal: '26-28 Juni 2026',
+      lokasi:  'Graha Nusa, Mamuju'
+    });
+
+    // Generate QR Code
+    const qrEl = document.getElementById('qrcode');
+    qrEl.innerHTML = '';
+    qrInstance = new QRCode(qrEl, {
+      text:          qrData,
+      width:         180,
+      height:        180,
+      colorDark:     '#1a7db8',
+      colorLight:    '#ffffff',
+      correctLevel:  QRCode.CorrectLevel.H
+    });
+
+    document.getElementById('successOverlay').style.display = 'flex';
+  }
+
+  // ── Simpan tiket sebagai gambar ──
+  function saveTicket() {
+    const btn = document.getElementById('btnSaveQR');
+    btn.textContent = 'Menyimpan...';
+    btn.disabled = true;
+
+    const ticket = document.getElementById('qrTicket');
+    html2canvas(ticket, {
+      scale:           2.5,
+      useCORS:         true,
+      backgroundColor: '#ffffff',
+      logging:         false
+    }).then(canvas => {
+      const link    = document.createElement('a');
+      const nama    = document.getElementById('qr-nama').textContent.replace(/\s+/g,'_');
+      const id      = document.getElementById('qr-id').textContent;
+      link.download = 'Tiket_STB2026_' + nama + '_' + id + '.png';
+      link.href     = canvas.toDataURL('image/png');
+      link.click();
+
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Simpan sebagai Gambar';
+      btn.disabled = false;
+    });
+  }
+
+  // ── Tutup overlay ──
+  function closeOverlay() {
+    document.getElementById('successOverlay').style.display = 'none';
+    document.getElementById('registrationForm').reset();
+    document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+    document.getElementById('qrcode').innerHTML = '';
+  }
 
   // ── SUBMIT ──
   document.getElementById('registrationForm').addEventListener('submit', async function(e) {
@@ -800,6 +1017,8 @@
     try {
       setLoading(true, 'Mengirim data...');
 
+      const pesertaId = generateID(nama, sekolah);
+
       const params = new URLSearchParams({
         action:           'saveRow',
         nama, gender, sekolah,
@@ -807,7 +1026,8 @@
         email,
         surat_pengantar:  linkSurat,
         bukti_pembayaran: linkBukti,
-        persetujuan:      'Disetujui'
+        persetujuan:      'Disetujui',
+        peserta_id:       pesertaId
       });
 
       await fetch(APPS_SCRIPT_URL + '?' + params.toString(), {
@@ -816,19 +1036,12 @@
       });
 
       setLoading(false);
-      document.getElementById('successOverlay').style.display = 'flex';
+      showQRTicket(nama, sekolah, pesertaId);
 
     } catch (err) {
       setLoading(false);
       showError('Gagal mengirim: ' + err.message + '. Periksa koneksi dan coba lagi.');
     }
-  });
-
-  // ── Reset setelah sukses ──
-  document.getElementById('successOverlay').addEventListener('click', function() {
-    this.style.display = 'none';
-    document.getElementById('registrationForm').reset();
-    document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
   });
 </script>
 </body>
