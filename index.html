@@ -724,9 +724,11 @@
 </div>
 
 <script>
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznP0uvoFr4zlcs-iqUYrg2PRSLS0K_Mm2w2Q6YHA5ShWSRaMebn1Lw72E8Ni8WVT8Q/exec";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuSGeH4NGIuYPFYUGVmJaQMzmWd7FyUBmvOW5_yrpX6rA6smx4dFx0lqIsfO9qm7qY-g/exec";
+  const FOLDER_SURAT   = "1eer8sA9EU3TPVwWXuWCRKwJwn6dLz9cB24_PAhsAxt8TryrPs4a58dkFE9dqAVIguIfGDJyz";
+  const FOLDER_BUKTI   = "1YbDaSC3--uEikoF0a3Uvu5PeDOicdzgF6EKEj_xactRarn1wARSfI4sf-vbh4AmFn5TXtrBi";
 
-  // Radio option visual toggle
+  // ── Radio toggle ──
   document.querySelectorAll('.radio-option').forEach(opt => {
     opt.addEventListener('click', function() {
       document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
@@ -734,119 +736,140 @@
     });
   });
 
-  // File upload display
+  // ── File upload display ──
   function setupFileInput(inputId, areaId, selectedId, nameId) {
-    const input = document.getElementById(inputId);
+    const input    = document.getElementById(inputId);
     const selected = document.getElementById(selectedId);
-    const nameEl = document.getElementById(nameId);
-    const area = document.getElementById(areaId);
+    const nameEl   = document.getElementById(nameId);
+    const area     = document.getElementById(areaId);
     input.addEventListener('change', function() {
       if (this.files && this.files[0]) {
         nameEl.textContent = this.files[0].name;
         selected.style.display = 'flex';
         area.style.borderColor = '#28a870';
-        area.style.background = '#f0faf4';
+        area.style.background  = '#f0faf4';
       }
     });
     area.addEventListener('dragover', e => { e.preventDefault(); area.style.borderColor = '#38a9e4'; });
     area.addEventListener('dragleave', () => { area.style.borderColor = ''; });
     area.addEventListener('drop', e => {
       e.preventDefault();
-      if (e.dataTransfer.files[0]) {
-        input.files = e.dataTransfer.files;
-        input.dispatchEvent(new Event('change'));
-      }
+      if (e.dataTransfer.files[0]) { input.files = e.dataTransfer.files; input.dispatchEvent(new Event('change')); }
     });
   }
   setupFileInput('file-surat', 'area-surat', 'sel-surat', 'sel-surat-name');
   setupFileInput('file-bukti', 'area-bukti', 'sel-bukti', 'sel-bukti-name');
 
-  // Loading state helpers
-  function setLoading(on) {
-    const btn = document.getElementById('btnSubmit');
+  // ── UI helpers ──
+  function setLoading(on, msg) {
+    const btn     = document.getElementById('btnSubmit');
     const btnText = document.getElementById('btnText');
     const spinner = document.getElementById('btnSpinner');
-    btn.disabled = on;
-    btnText.textContent = on ? 'Mengirim...' : 'Kirim Pendaftaran';
+    btn.disabled          = on;
+    btnText.textContent   = on ? (msg || 'Mengirim...') : 'Kirim Pendaftaran';
     spinner.style.display = on ? 'inline-block' : 'none';
   }
-
   function showError(msg) {
     const el = document.getElementById('formError');
-    el.textContent = '⚠️ ' + msg;
-    el.style.display = 'block';
+    el.textContent    = '⚠️ ' + msg;
+    el.style.display  = 'block';
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
+  function hideError() { document.getElementById('formError').style.display = 'none'; }
 
-  function hideError() {
-    document.getElementById('formError').style.display = 'none';
+  // ── File → Base64 ──
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload  = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   }
 
-  // Form submit → kirim ke Apps Script → masuk Google Sheets
+  // ── Upload satu file ke Drive via Apps Script doPost ──
+  async function uploadFile(file, folderId, label) {
+    setLoading(true, 'Mengupload ' + label + '...');
+    const base64 = await toBase64(file);
+    const payload = {
+      action:   'uploadFile',
+      fileName: file.name,
+      mimeType: file.type || 'application/octet-stream',
+      fileData: base64,
+      folderId: folderId
+    };
+    const res  = await fetch(APPS_SCRIPT_URL, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    });
+    const json = await res.json();
+    if (json.status !== 'success') throw new Error(json.message || 'Upload gagal');
+    return json.url;   // link Google Drive file
+  }
+
+  // ── Simpan baris data ke Sheets via doGet ──
+  async function saveToSheet(data) {
+    const params = new URLSearchParams({ action: 'saveRow', ...data });
+    await fetch(APPS_SCRIPT_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' });
+  }
+
+  // ── SUBMIT ──
   document.getElementById('registrationForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     hideError();
 
-    // Validasi manual
-    const nama = this.nama.value.trim();
-    const gender = this.gender ? [...this.querySelectorAll('input[name="gender"]')].find(r => r.checked)?.value : '';
+    const nama    = this.nama.value.trim();
+    const gender  = [...this.querySelectorAll('input[name="gender"]')].find(r => r.checked)?.value || '';
     const sekolah = this.sekolah.value.trim();
-    const wa = this.whatsapp.value.trim();
-    const email = this.email.value.trim();
+    const wa      = this.whatsapp.value.trim();
+    const email   = this.email.value.trim();
     const suratFile = document.getElementById('file-surat').files[0];
     const buktiFile = document.getElementById('file-bukti').files[0];
-    const consent = document.getElementById('cbConsent').checked;
+    const consent   = document.getElementById('cbConsent').checked;
 
-    if (!nama) return showError('Nama Lengkap wajib diisi.');
-    if (!gender) return showError('Jenis Kelamin wajib dipilih.');
-    if (!sekolah) return showError('Asal Sekolah wajib diisi.');
-    if (!wa) return showError('Nomor WhatsApp wajib diisi.');
+    if (!nama)                        return showError('Nama Lengkap wajib diisi.');
+    if (!gender)                      return showError('Jenis Kelamin wajib dipilih.');
+    if (!sekolah)                     return showError('Asal Sekolah wajib diisi.');
+    if (!wa)                          return showError('Nomor WhatsApp wajib diisi.');
     if (!email || !email.includes('@')) return showError('Alamat Email tidak valid.');
-    if (!suratFile) return showError('Surat Pengantar dari Sekolah wajib diupload.');
-    if (!buktiFile) return showError('Bukti Pembayaran wajib diupload.');
-    if (!consent) return showError('Anda harus menyetujui persetujuan penggunaan data.');
-
-    setLoading(true);
+    if (!suratFile)                   return showError('Surat Pengantar dari Sekolah wajib diupload.');
+    if (!buktiFile)                   return showError('Bukti Pembayaran wajib diupload.');
+    if (!consent)                     return showError('Anda harus menyetujui persetujuan penggunaan data.');
 
     try {
-      const payload = {
-        nama,
-        gender,
-        sekolah,
-        whatsapp: wa,
-        email,
-        surat_pengantar: suratFile.name,
-        bukti_pembayaran: buktiFile.name,
-        persetujuan: consent ? 'Disetujui' : 'Tidak'
-      };
+      // 1. Upload surat pengantar → dapat link Drive
+      const urlSurat = await uploadFile(suratFile, FOLDER_SURAT, 'Surat Pengantar');
 
-      // Gunakan no-cors agar tidak diblokir browser (Apps Script menerima ini)
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+      // 2. Upload bukti pembayaran → dapat link Drive
+      const urlBukti = await uploadFile(buktiFile, FOLDER_BUKTI, 'Bukti Pembayaran');
+
+      // 3. Simpan semua data + link ke Sheets
+      setLoading(true, 'Menyimpan data...');
+      await saveToSheet({
+        nama, gender, sekolah,
+        whatsapp: wa, email,
+        surat_pengantar:  urlSurat,
+        bukti_pembayaran: urlBukti,
+        persetujuan: 'Disetujui'
       });
 
-      // Tampilkan sukses (no-cors tidak return response body, tapi data masuk)
       setLoading(false);
       document.getElementById('successOverlay').style.display = 'flex';
 
     } catch (err) {
       setLoading(false);
-      showError('Gagal mengirim data. Periksa koneksi internet Anda dan coba lagi.');
+      showError('Gagal mengirim: ' + err.message + '. Periksa koneksi dan coba lagi.');
     }
   });
 
+  // ── Reset setelah sukses ──
   document.getElementById('successOverlay').addEventListener('click', function() {
     this.style.display = 'none';
     document.getElementById('registrationForm').reset();
     document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
     document.querySelectorAll('.file-selected').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.file-upload-area').forEach(el => {
-      el.style.borderColor = '';
-      el.style.background = '';
-    });
+    document.querySelectorAll('.file-upload-area').forEach(el => { el.style.borderColor = ''; el.style.background = ''; });
   });
 </script>
 </body>
